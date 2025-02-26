@@ -1,0 +1,155 @@
+body {
+    background-color: #1e1e1e;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.kanban-container {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    flex-wrap: wrap; /* เพื่อให้คอลัมน์ยืดหยุ่นได้ */
+    justify-content: space-between;
+}
+
+.column {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 15px;
+    width: 30%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างคอลัมน์ */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.task-list {
+    flex-grow: 1;
+    min-height: 300px;
+}
+
+.task {
+    background-color: #333;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* ปุ่มลบที่ไม่มีพื้นหลังสีแดง */
+.delete-task {
+    background-color: transparent;  /* ไม่มีพื้นหลัง */
+    color: white;  /* สีตัวอักษรขาว */
+    border: none;  /* ไม่มีกรอบ */
+    padding: 5px;  /* เพิ่มขนาด padding เล็กน้อย */
+    cursor: pointer;  /* ให้เป็น cursor แบบมือ */
+    border-radius: 50%;  /* ให้ปุ่มเป็นวงกลม */
+    position: absolute;  /* ให้ปุ่มอยู่มุมขวาบน */
+    top: 5px;
+    right: 5px;
+    font-size: 18px;  /* ขนาดตัวอักษร */
+}
+
+/* สีเมื่อ hover ปุ่มลบ */
+.delete-task:hover {
+    color: #f44336;  /* สีแดงเข้มเมื่อ hover */
+}
+
+/* ปุ่ม Add Task ที่ยังเหมือนเดิม */
+.add-task {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-task:hover {
+    background-color: #444;
+}
+
+.add-task:focus {
+    outline: none;
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    display: none;
+}
+
+canvas {
+    display: none;
+    max-width: 500px;
+}
+
+/* Media Queries สำหรับมือถือ */
+@media (max-width: 768px) {
+    .kanban-container {
+        flex-direction: column; /* จัดเรียงคอลัมน์ในแนวตั้ง */
+        width: 100%;
+    }
+
+    .column {
+        width: 100%; /* ให้คอลัมน์กว้างเต็มหน้าจอ */
+        margin-bottom: 20px;
+    }
+
+    .task {
+        font-size: 14px; /* ขนาดตัวอักษรเล็กลง */
+        padding: 8px; /* ลดขนาด padding */
+    }
+
+    .add-task {
+        font-size: 14px; /* ขนาดตัวอักษรในปุ่ม Add Task */
+        padding: 6px 12px; /* ลดขนาดปุ่มให้เหมาะกับมือถือ */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 18px; /* ขนาดหัวข้อเล็กลง */
+    }
+
+    .task {
+        font-size: 12px; /* ขนาดตัวอักษรเล็กลงมาก */
+        padding: 6px; /* ลดขนาด padding */
+    }
+
+    .add-task {
+        font-size: 12px; /* ขนาดตัวอักษรในปุ่ม Add Task */
+        padding: 6px 10px; /* ลดขนาดปุ่ม */
+    }
+
+    .delete-task {
+        font-size: 16px; /* ขนาดของปุ่มลบเล็กลง */
+        padding: 3px; /* ขนาดปุ่มลบเล็กลง */
+    }
+}
+canvas {
+    display: block; /* ให้ canvas แสดงผลเป็น block-level element */
+    width: 100%; /* ให้ความกว้างเต็มที่ของคอนเทนเนอร์ */
+    max-width: 800px; /* กำหนดความกว้างสูงสุดของ canvas */
+    height: auto; /* ความสูงจะปรับอัตโนมัติตามความกว้าง */
+    margin: 20px 0; /* เพิ่มระยะห่างจากเนื้อหาด้านบนและด้านล่าง */
+  }
