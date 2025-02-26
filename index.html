@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="kanban-container">
+        <div class="column" data-column="todo">
+            <h2>น่าจะทำ</h2>
+            <div class="task-list"></div>
+            <button class="add-task">+ Add Task</button>
+        </div>
+        <div class="column" data-column="doing">
+            <h2>กำลังทำ</h2>
+            <div class="task-list"></div>
+            <button class="add-task">+ Add Task</button>
+        </div>
+        <div class="column" data-column="done">
+            <h2>เสร็จ</h2>
+            <div class="task-list"></div>
+            <button class="add-task">+ Add Task</button>
+        </div>
+        <div class="column" data-column="archived">
+            <h2>ไม่ทำละ</h2>
+            <div class="task-list"></div>
+            <button class="add-task">+ Add Task</button>
+        </div>
+    </div>
+    <button id="start-camera">เปิดกล้อง</button>
+    <video id="video" autoplay playsinline></video>
+    <button id="capture" disabled>ถ่ายภาพ</button>
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
